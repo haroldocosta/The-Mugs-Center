@@ -1,4 +1,5 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { entities } from '../../src/entity';
 
 require('dotenv').config();
 

@@ -1,4 +1,4 @@
-import {MigrationInterface, QueryRunner} from "typeorm";
+import { MigrationInterface, QueryRunner } from "typeorm";
 
 export class mugInit1650818020459 implements MigrationInterface {
     name = 'mugInit1650818020459'
