@@ -1,7 +1,8 @@
 import { UserDto } from "src/user/dto/user";
 
 export interface IUserService {
-    getUser();
+    getAllUsers();
     createUser(user: UserDto);
-    deleteUser();
+    getUserById(id: string);
+    deleteUser(id: string);
 }

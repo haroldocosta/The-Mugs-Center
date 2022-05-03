@@ -12,7 +12,7 @@ export class UserController {
     @Get()
     @HttpCode(HttpStatus.CREATED)
     getUsers(){
-        return this.userService.getUser()
+        return this.userService.getAllUsers()
     }
 
     @Post()

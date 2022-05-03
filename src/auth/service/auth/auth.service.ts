@@ -18,18 +18,17 @@ export class AuthService implements AuthenticationProvider {
         const user = await this.userRepository.findOne(discordId)
 
         if (user) return user
-        return await this.createUser(details)
+        return this.createUser(details)
     }
 
     createUser(details: UserDetails) {
         console.log('User created ', details)
         const user = this.userRepository.create(details)
         return this.userRepository.save(user)
-        // this.userRepository.save(details)
     }
 
-    findUser() {
-        throw new Error('Method not implemented.');
+    findUser(discordId: string): Promise<User | undefined> {
+        return this.userRepository.findOne(discordId)
     }
 
 }
