@@ -15,20 +15,27 @@ export class AuthService implements AuthenticationProvider {
 
     async validateUser(details: UserDetails) {
         const { discordId } = details;
-        const user = await this.userRepository.findOne(discordId)
+        const user = await this.userRepository.findOne({ where: { discordId } })
 
         if (user) return user
         return this.createUser(details)
     }
 
     createUser(details: UserDetails) {
-        console.log('User created ', details)
-        const user = this.userRepository.create(details)
+        const newUser = {
+            ...details,
+            isActive: true,
+            isArchived: true,
+            createdBy: 'discord',
+            lastChangedBy: 'discord',
+            internalComment: null,
+        }
+        const user = this.userRepository.create(newUser)
         return this.userRepository.save(user)
     }
 
     findUser(discordId: string): Promise<User | undefined> {
-        return this.userRepository.findOne(discordId)
+        return this.userRepository.findOne({ where: { discordId } })
     }
 
 }

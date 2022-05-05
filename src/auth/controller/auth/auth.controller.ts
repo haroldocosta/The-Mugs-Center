@@ -24,7 +24,7 @@ export class AuthController {
     @UseGuards(DiscordAuthGuard)
     redirect(@Res() res: Response ) {
         console.log('redirect')
-        res.send(200)
+        res.sendStatus(200)
     }
     
     /**

@@ -15,7 +15,6 @@ export class DiscordStrategy extends PassportStrategy(Strategy) {
             callbackUrl: process.env.DISCORD_CALLBACK_URL,
             scope: ['identify', 'guilds']
         });
-        console.log('constructor')
     }
 
     async validate(accessToken: string, refreshToken: string, profile: Profile) {
