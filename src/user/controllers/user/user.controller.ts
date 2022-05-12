@@ -1,5 +1,5 @@
-import { Body, Controller, Get, HttpCode, HttpStatus, Inject, Post } from '@nestjs/common';
-import { UserDto } from '../../../../src/user/dto/user';
+import { Body, Controller, Get, HttpCode, HttpStatus, Inject, Param, Post } from '@nestjs/common';
+import { UserDetails } from '../../../../src/utils/types';
 import { IUserService } from '../../../../src/user/services/user/user';
 
 @Controller('user')
@@ -10,15 +10,21 @@ export class UserController {
     ) { }
 
     @Get()
-    @HttpCode(HttpStatus.CREATED)
+    @HttpCode(HttpStatus.FOUND)
     getUsers(){
         return this.userService.getAllUsers()
     }
-
+    
     @Post()
-    createUser(@Body() user: UserDto){
+    @HttpCode(HttpStatus.CREATED)
+    createUser(@Body() user: UserDetails){
         return this.userService.createUser(user)
     }
 
+    @Post('/:id')
+    @HttpCode(HttpStatus.CREATED)
+    favoriteMug(@Param('id') id: string, @Body('id') mugId: string){
+        return this.userService.favoriteMug(id, mugId)
+    }
 
 }

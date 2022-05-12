@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { Mug } from 'src/entity';
 import { DeleteResult, UpdateResult } from 'typeorm';
 import { MugDto } from '../../../src/model/mug-dto.interface';
 import { MugIdDto } from '../../../src/model/mug-id-dto.interface';
@@ -20,7 +21,7 @@ export class MugService {
     return await this.mugRepository.find();
   }
 
-  public async findOne(id: string): Promise<MugIdDto> {
+  public async findOne(id: string): Promise<Mug> {
     const found = await this.mugRepository.findOne(id)
     if (!found) {
       throw new NotFoundException(`Mug with ID ${id} not found`);

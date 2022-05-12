@@ -1,5 +1,6 @@
-import { Entity, Column } from 'typeorm';
+import { Entity, Column, ManyToMany, JoinTable } from 'typeorm';
 import { BaseEntity } from './base.entity';
+import { Mug } from './mug.entity';
 
 @Entity({ name: 'user' })
 export class User extends BaseEntity {
@@ -15,4 +16,8 @@ export class User extends BaseEntity {
 
     @Column({ nullable: true, type: 'varchar', length: 300 })
     avatar: string;
+
+    @ManyToMany(() => Mug, (mug) => mug.favoritedBy)
+    @JoinTable()
+    favorites: Mug[]
 }

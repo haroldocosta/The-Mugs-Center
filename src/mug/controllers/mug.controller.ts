@@ -1,11 +1,14 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Inject, Param, Patch, Post, Put } from '@nestjs/common';
 import { MugDto } from '../../model/mug-dto.interface';
 import { MugIdDto } from '../../model/mug-id-dto.interface';
 import { MugService } from '../services/mug.service';
 
 @Controller('mug')
 export class MugController {
-  constructor(private mugService: MugService) { }
+  constructor(
+    @Inject('MUG_SERVICE')
+    private mugService: MugService
+    ) { }
 
   @Post()
   public async create(@Body() mug: MugDto): Promise<MugIdDto> {

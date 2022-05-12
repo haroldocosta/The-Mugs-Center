@@ -7,7 +7,17 @@ import { MugRepository } from './mug.repository';
 @Module({
   imports: [TypeOrmModule.forFeature([MugRepository])],
   controllers: [MugController],
-  providers: [MugService],
-  exports: []
+  providers: [
+    {
+      provide: 'MUG_SERVICE',
+      useClass: MugService,
+    },
+  ],
+  exports: [
+    {
+      provide: 'MUG_SERVICE',
+      useClass: MugService,
+    },
+  ]
 })
 export class MugModule { }

@@ -1,6 +1,14 @@
 ## Description
 
-  [x] CRUD REST API
+  [x] API REST CRUD
+  [x] Autenticação via OAuth2
+  [x] Swagger
+  [ ] Testes
+  [x] Postgres
+  [x] TypeORM
+  [ ] Logging
+  [x] Docker
+  [ ] NestJS com Workspaces
 
 ## Installation
 
@@ -8,14 +16,19 @@
 $ npm install
 ```
 
+## Running the database
+```bash
+$ npm start:dev:db
+```
+
 ## Running the app
 
 ```bash
 # development
-$ npm run start
+$ npm run start:dev
 
 # watch mode
-$ npm run start:dev
+$ npm run start:dev:nodemon
 
 # production mode
 $ npm run start:prod
@@ -27,22 +40,9 @@ $ npm run start:prod
 # unit tests
 $ npm run test
 
-# e2e tests
-$ npm run test:e2e
-
 # test coverage
 $ npm run test:cov
 ```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
 
 ## License
 
