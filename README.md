@@ -3,10 +3,10 @@
   [x] API REST CRUD
   [x] Autenticação via OAuth2
   [x] Swagger
-  [ ] Testes
+  [x] Testes
   [x] Postgres
   [x] TypeORM
-  [ ] Logging
+  [x] Logging
   [x] Docker
   [ ] NestJS com Workspaces
 
